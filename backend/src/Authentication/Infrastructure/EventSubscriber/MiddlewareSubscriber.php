@@ -77,6 +77,7 @@ readonly class MiddlewareSubscriber implements EventSubscriberInterface
 
     return $uri === '/'
       || str_starts_with($uri, '/api/login')
+      || str_starts_with($uri, '/api/webhook')
       || str_starts_with($uri, '/api/auth')
       || str_starts_with($uri, '/api/docs')
       || str_starts_with($uri, '/api/register')
