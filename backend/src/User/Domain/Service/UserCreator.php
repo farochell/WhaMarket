@@ -28,7 +28,7 @@ class UserCreator
 
     public function create(
         PhoneNumber $phoneNumber,
-        Role $role,
+        Roles $roles,
         string $fullName,
         ?string $email = null
     ): User {
@@ -46,7 +46,7 @@ class UserCreator
             $phoneNumber,
             $hashed,
             $clearPassword,
-            Roles::fromArray([$role->value]),
+            $roles,
             $fullName,
             $email
         );
