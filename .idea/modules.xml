@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../automart/.idea/automarkt.iml" filepath="$PROJECT_DIR$/../automart/.idea/automarkt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../FULLSTACK/mon-agil/.idea/mon-agil.iml" filepath="$PROJECT_DIR$/../../FULLSTACK/mon-agil/.idea/mon-agil.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/wha-market.iml" filepath="$PROJECT_DIR$/.idea/wha-market.iml" />
     </modules>
   </component>

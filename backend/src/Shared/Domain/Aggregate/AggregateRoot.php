@@ -28,7 +28,7 @@ abstract class AggregateRoot
         return $events;
     }
 
-    final protected function recordThat(DomainEvent $event): void
+    final protected function record(DomainEvent $event): void
     {
         $this->domainEvents[] = $event;
     }
