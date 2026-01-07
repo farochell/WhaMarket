@@ -1,0 +1,15 @@
+api_platform:
+    title: WhaMarket API
+    version: 1.0.0
+    defaults:
+        stateless: true
+        cache_headers:
+            vary: ['Content-Type', 'Authorization', 'Origin']
+
+    mapping:
+       paths:
+           - '%kernel.project_dir%/src/User/UI/Http/Rest/ApiPlatform/'
+
+    formats:
+       json: [ 'application/json' ]
+       multipart: [ 'multipart/form-data' ]

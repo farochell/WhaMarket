@@ -1,0 +1,26 @@
+http:
+  routers:
+   #frontend:
+   #  entryPoints:
+   #    - websecure
+   #  rule: "Host(`app.whamarket.dev`)"
+   #  tls: {}
+   #  service: frontend
+
+    backend:
+      entryPoints:
+        - websecure
+      rule: "Host(`api.whamarket.dev`)"
+      tls: {}
+      service: backend
+
+  services:
+    #frontend:
+    #  loadBalancer:
+    #    servers:
+    #      - url: "http://frontend:4200"
+
+    backend:
+      loadBalancer:
+        servers:
+          - url: "http://backend:8000"
