@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace App\Shop\Infrastructure\Doctrine\Mapping;
 
+use App\Shop\Domain\ValueObject\ShopCategory;
 use App\Shop\Domain\ValueObject\ShopId;
 use App\User\Domain\ValueObject\UserId;
 use DateTimeImmutable;
@@ -24,7 +25,7 @@ class ShopDoctrine
     public UserId $userId;
 
     #[ORM\Column(type: 'shop_category', length: 20)]
-    public string $category;
+    public ShopCategory $category;
 
     #[ORM\Column(type: 'string', length: 100)]
     public string $name;

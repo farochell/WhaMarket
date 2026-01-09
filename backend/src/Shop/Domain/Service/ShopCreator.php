@@ -10,25 +10,39 @@ namespace App\Shop\Domain\Service;
 use App\Shop\Domain\Entity\Shop;
 use App\Shop\Domain\Repository\ShopRepository;
 use App\Shop\Domain\ValueObject\ShopCategory;
+use App\User\Domain\Exception\UserNotFoundException;
+use App\User\Domain\Repository\UserRepository;
+use App\User\Domain\ValueObject\PhoneNumber;
 use App\User\Domain\ValueObject\UserId;
 
 class ShopCreator
 {
     public function __construct(
-        private ShopRepository $shopRepository
+        private ShopRepository $shopRepository,
+        private UserRepository $userRepository,
     )
     {
     }
 
     public function create(
-        UserId $userId,
+        PhoneNumber $phoneNumber,
         ShopCategory $category,
         string $name,
         string $city
-    ): Shop {
-        $shop = Shop::create($userId, $category, $name, $city);
-        $this->shopRepository->save($shop);
+    ): ?Shop {
+        try {
+            $user = $this->userRepository->findByPhoneNumber($phoneNumber);
 
-        return $shop;
+            if (!$user) {
+                throw new UserNotFoundException($phoneNumber->value());
+            }
+
+            $shop = Shop::create($user->id, $category, $name, $city);
+            $this->shopRepository->save($shop);
+
+            return $shop;
+        } catch (UserNotFoundException $exception) {
+            return null;
+        }
     }
 }

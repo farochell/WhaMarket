@@ -47,7 +47,6 @@ class MysqlUserRepository extends BaseRepository implements UserRepository
         try {
             $this->getEntityManager()->persist($user);
             $this->getEntityManager()->flush();
-
         } catch (Throwable $e) {
             $exception = EntityPersistenceException::fromPrevious(
                 $this->entityName,
