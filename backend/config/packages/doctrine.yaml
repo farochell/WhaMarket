@@ -13,6 +13,9 @@ doctrine:
             hashed_password: App\User\Infrastructure\Doctrine\Type\HashedPasswordType
             roles: App\User\Infrastructure\Doctrine\Type\RolesType
             phone_number: App\User\Infrastructure\Doctrine\Type\PhoneNumberType
+            #Shop
+            shop_id: App\Shop\Infrastructure\Doctrine\Type\ShopIdType
+            shop_category: App\Shop\Infrastructure\Doctrine\Type\ShopCategoryType
     orm:
         validate_xml_mapping: true
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
@@ -26,6 +29,12 @@ doctrine:
                 dir: '%kernel.project_dir%/src/User/Infrastructure/Doctrine/Mapping'
                 prefix: 'App\User\Infrastructure\Doctrine\Mapping'
                 alias: User
+            Shop:
+                type: attribute
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Shop/Infrastructure/Doctrine/Mapping'
+                prefix: 'App\Shop\Infrastructure\Doctrine\Mapping'
+                alias: Shop
         controller_resolver:
             auto_mapping: false
 

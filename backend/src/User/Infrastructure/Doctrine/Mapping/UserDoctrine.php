@@ -11,6 +11,7 @@ use App\Authentication\Domain\ValueObject\HashedPassword;
 use App\User\Domain\ValueObject\PhoneNumber;
 use App\User\Domain\ValueObject\Roles;
 use App\User\Domain\ValueObject\UserId;
+use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
@@ -38,4 +39,7 @@ class UserDoctrine
 
     #[ORM\Column(type: 'boolean')]
     public bool $isActive = true;
+
+    #[ORM\Column(type: 'datetime_immutable')]
+    public DateTimeImmutable $createdAt;
 }

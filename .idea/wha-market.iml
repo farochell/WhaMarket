@@ -103,5 +103,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="automarkt" />
+    <orderEntry type="module" module-name="mon-agil" />
+    <orderEntry type="module" module-name="defi-fullstack-app" />
   </component>
 </module>

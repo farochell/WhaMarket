@@ -16,7 +16,7 @@ class UserNotFoundException extends DomainException implements ApiExceptionInter
 {
     use ApiExceptionTrait;
 
-    public function __construct(private readonly string $email)
+    public function __construct(private readonly string $phoneNumber)
     {
         parent::__construct(
             message: 'User not found',
@@ -30,7 +30,7 @@ class UserNotFoundException extends DomainException implements ApiExceptionInter
 
     public function getDetails(): array {
         return [
-            'message' => 'User not found with email: ' . $this->email
+            'message' => 'User not found with phoneNumber: ' . $this->phoneNumber
         ];
     }
 }
