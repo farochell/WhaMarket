@@ -13,5 +13,6 @@ api_platform:
 
 
     formats:
+       jsonld: [ 'application/ld+json' ]
        json: [ 'application/json' ]
        multipart: [ 'multipart/form-data' ]

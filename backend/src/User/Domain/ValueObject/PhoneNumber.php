@@ -22,4 +22,9 @@ class PhoneNumber extends StringValueObject
             throw new \InvalidArgumentException('Invalid phone number');
         }
     }
+
+    public function equals(string $value): bool
+    {
+        return $value === $this->value;
+    }
 }

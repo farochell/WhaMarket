@@ -21,13 +21,13 @@ class MysqlUserRepository extends BaseRepository implements UserRepository
 {
     public function __construct(
         ManagerRegistry $managerRegistry,
-        LoggerInterface $userLogger
+        LoggerInterface $logger
     ) {
         parent::__construct(
             $managerRegistry,
             UserDoctrine::class,
             'User',
-            $userLogger
+            $logger
         );
     }
 
