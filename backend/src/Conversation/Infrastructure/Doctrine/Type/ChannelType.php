@@ -5,27 +5,32 @@
  */
 declare(strict_types=1);
 
+namespace App\Conversation\Infrastructure\Doctrine\Type;
 
-namespace App\Shop\Infrastructure\Doctrine\Type;
-
+use App\Conversation\Domain\ValueObject\Channel;
 use App\Shared\Infrastructure\Doctrine\Type\StringType;
-use App\Shop\Domain\ValueObject\ShopCategory;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Override;
 use Webmozart\Assert\Assert;
 
-class ShopCategoryType extends StringType
+class ChannelType extends StringType
 {
-    public const string NAME = 'shop_category';
+    public const string NAME = 'channel';
 
     #[Override]
-    public function convertToPHPValue($value, AbstractPlatform $platform): ?ShopCategory
+    public function getName(): string
+    {
+        return self::NAME;
+    }
+
+    #[Override]
+    public function convertToPHPValue($value, AbstractPlatform $platform): ?Channel
     {
         if (null === $value) {
             return null;
         }
 
-        return ShopCategory::tryFrom((string) $value);
+        return Channel::tryFrom((string) $value);
     }
 
     #[Override]
@@ -35,21 +40,15 @@ class ShopCategoryType extends StringType
             return null;
         }
 
-        Assert::isInstanceOf($value, ShopCategory::class);
-        $shopCategory = $value;
+        Assert::isInstanceOf($value, Channel::class);
+        $channel = $value;
 
-        return $shopCategory->value;
+        return $channel->value;
     }
 
     #[Override]
     public function requiresSQLCommentHint(AbstractPlatform $platform): bool
     {
         return true;
-    }
-
-    #[Override]
-    public function getName(): string
-    {
-        return self::NAME;
     }
 }

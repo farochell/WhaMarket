@@ -16,6 +16,10 @@ doctrine:
             #Shop
             shop_id: App\Shop\Infrastructure\Doctrine\Type\ShopIdType
             shop_category: App\Shop\Infrastructure\Doctrine\Type\ShopCategoryType
+            #Conversion
+            seller_conversation_id: App\Conversation\Infrastructure\Doctrine\Type\SellerConversationIdType
+            channel: App\Conversation\Infrastructure\Doctrine\Type\ChannelType
+            conversation_state: App\Conversation\Infrastructure\Doctrine\Type\ConversationStateType
     orm:
         validate_xml_mapping: true
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
@@ -35,6 +39,12 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Shop/Infrastructure/Doctrine/Mapping'
                 prefix: 'App\Shop\Infrastructure\Doctrine\Mapping'
                 alias: Shop
+            Conversation:
+                type: attribute
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Conversation/Infrastructure/Doctrine/Mapping'
+                prefix: 'App\Conversation\Infrastructure\Doctrine\Mapping'
+                alias: Conversation
         controller_resolver:
             auto_mapping: false
 

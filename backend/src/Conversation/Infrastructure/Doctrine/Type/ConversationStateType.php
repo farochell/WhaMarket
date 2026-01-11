@@ -5,27 +5,26 @@
  */
 declare(strict_types=1);
 
+namespace App\Conversation\Infrastructure\Doctrine\Type;
 
-namespace App\Shop\Infrastructure\Doctrine\Type;
-
+use App\Conversation\Domain\ValueObject\ConversationState;
 use App\Shared\Infrastructure\Doctrine\Type\StringType;
-use App\Shop\Domain\ValueObject\ShopCategory;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Override;
 use Webmozart\Assert\Assert;
 
-class ShopCategoryType extends StringType
+class ConversationStateType extends StringType
 {
-    public const string NAME = 'shop_category';
+    public const string NAME = 'conversation_state';
 
     #[Override]
-    public function convertToPHPValue($value, AbstractPlatform $platform): ?ShopCategory
+    public function convertToPHPValue($value, AbstractPlatform $platform): ?ConversationState
     {
         if (null === $value) {
             return null;
         }
 
-        return ShopCategory::tryFrom((string) $value);
+        return ConversationState::tryFrom((string) $value);
     }
 
     #[Override]
@@ -35,10 +34,10 @@ class ShopCategoryType extends StringType
             return null;
         }
 
-        Assert::isInstanceOf($value, ShopCategory::class);
-        $shopCategory = $value;
+        Assert::isInstanceOf($value, ConversationState::class);
+        $conversationState = $value;
 
-        return $shopCategory->value;
+        return $conversationState->value;
     }
 
     #[Override]

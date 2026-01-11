@@ -100,6 +100,11 @@
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/twig/twig" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/webmozart/assert" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/willdurand/negotiation" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/monolog/monolog" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/symfony/http-client" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/symfony/http-client-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/symfony/monolog-bridge" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/symfony/monolog-bundle" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
