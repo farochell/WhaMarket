@@ -1,2 +1,2 @@
 # WhaMarket
-### Application de vente via Whatsapp pour le secteur informel en Afrique de l'Ouest
+### Application de ventes via Whatsapp Business Api et mobile money pour le secteur informel en Afrique de l'Ouest
